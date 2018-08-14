@@ -13,6 +13,9 @@ class Config:
     TESTING = False
     CSRF_ENABLED = True
     SECRET_KEY = os.getenv('SECRET_KEY')
+    SQLALCHEMY_DATABASE_URI = os.environ.get("SQLALCHEMY_DATABASE_URI")
+    SQLALCHEMY_ECHO = False
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 
 class DevelopmentConfiguration(Config):
@@ -22,12 +25,12 @@ class DevelopmentConfiguration(Config):
 
 
 class TestingConfiguration(Config):
-    """Development configuration class."""
+    """Testing configuration class."""
     TESTING = True
 
 
 class ProductionConfiguration(Config):
-    """Development configuration class."""
+    """Production configuration class."""
     DEBUG = False
 
 
